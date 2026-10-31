@@ -25,17 +25,6 @@ Life Simulator is an interactive web-based game where players create a character
 * **🏁 Game Over:** Reach the end of your character's life and review a summary of their journey.
 * **📱 Responsive Design:** Enjoy a seamless experience on various screen sizes, thanks to Tailwind CSS.
 
-### 🚀 How to Play
-1.  **Clone the repository (or download the files):**
-    ```bash
-    git clone [https://github.com/YOUR_USERNAME/Life-Game-Simulator-WEB.git](https://github.com/YOUR_USERNAME/Life-Game-Simulator-WEB.git)
-    cd Life-Game-Simulator-WEB
-    ```
-    (Alternatively, download the ZIP and extract it.)
-2.  **Navigate to the directory.**
-3.  **Open `index.html`** in your favorite modern web browser (e.g., Chrome, Firefox, Safari, Edge).
-4.  **Start your new life!**
-
 ### 🛠️ Technologies Used
 * **HTML:** For the basic structure of the web pages.
 * **CSS:**
@@ -69,12 +58,6 @@ Life Simulator is an interactive web-based game where players create a character
 * **🏁 پایان بازی:** به پایان زندگی شخصیت خود برسید و خلاصه‌ای از سفر او را مرور کنید.
 * **📱 طراحی واکنش‌گرا:** به لطف Tailwind CSS، از تجربه‌ای روان در اندازه‌های مختلف صفحه نمایش لذت ببرید.
 
-### 🚀 نحوه اجرا
-1.  **مخزن پروژه را کلون کنید (یا فایل‌ها را دانلود نمایید):**
-    ```bash
-    git clone [https://github.com/YOUR_USERNAME/Life-Game-Simulator-WEB.git](https://github.com/YOUR_USERNAME/Life-Game-Simulator-WEB.git)
-    cd Life-Game-Simulator-WEB
-    ```
     (یا فایل ZIP را دانلود و از حالت فشرده خارج کنید.)
 2.  **به پوشه پروژه بروید.**
 3.  **فایل `index.html`** را در مرورگر وب مدرن مورد علاقه خود (مانند کروم، فایرفاکس، سافاری، اِج) باز کنید.
