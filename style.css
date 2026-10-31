@@ -1,0 +1,861 @@
+/* style.css */
+
+/* --- Global Styles & Variables --- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap");
+
+:root {
+  --font-primary: "Inter", "Vazirmatn", sans-serif;
+
+  /* Light Mode Colors */
+  --color-bg-primary-light: #f0f4f8;
+  --color-bg-secondary-light: #ffffff; /* White background for cards, modals in light mode */
+  --color-bg-tertiary-light: #e4e8ec; /* Light gray for stat bar tracks, etc. */
+  --color-text-primary-light: #2c3e50; /* Dark text for primary content on light backgrounds */
+  --color-text-secondary-light: #576a82; /* Darker gray for secondary text */
+  --color-text-header-light: #1f2937; /* Slightly darker for headers on light backgrounds */
+  --color-border-light: #d1d9e6;
+
+  /* Dark Mode Colors */
+  --color-bg-primary-dark: #1a202c;
+  --color-bg-secondary-dark: #2d3748; /* Darker background for cards, modals in dark mode */
+  --color-bg-tertiary-dark: #4a5568; /* Dark gray for stat bar tracks in dark mode */
+  --color-text-primary-dark: #e2e8f0;
+  --color-text-secondary-dark: #a0aec0;
+  --color-text-header-dark: #f3f4f6; /* Lighter for headers on dark backgrounds */
+  --color-border-dark: #4a5568;
+
+  /* Accent Colors */
+  --color-text-on-accent: #ffffff;
+  --color-accent-primary: #3498db;
+  --color-accent-primary-dark-hover: #2980b9;
+  --color-accent-secondary: #2ecc71;
+  --color-accent-secondary-dark-hover: #27ae60;
+  --color-accent-warning: #f39c12;
+  --color-accent-warning-dark-hover: #e67e22;
+  --color-accent-danger: #e74c3c;
+  --color-accent-danger-dark-hover: #c0392b;
+  --color-accent-pink: #e83e8c;
+  --color-accent-pink-dark-hover: #d13079;
+  --color-accent-purple: #8e44ad;
+  --color-accent-purple-dark-hover: #783993;
+  --color-accent-gray: #9ca3af; /* Mid-gray for disabled button background */
+  --color-accent-gray-text: #e5e7eb; /* Light text on mid-gray disabled button */
+
+  /* Shadows and Borders */
+  --border-radius-sm: 0.375rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+
+  --shadow-color-rgb: 44, 62, 80;
+  --shadow-sm-light: 0 2px 4px rgba(var(--shadow-color-rgb), 0.08);
+  --shadow-md-light: 0 4px 8px rgba(var(--shadow-color-rgb), 0.15);
+  --shadow-lg-light: 0 10px 20px rgba(var(--shadow-color-rgb), 0.15);
+
+  --shadow-sm-dark: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-md-dark: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --shadow-lg-dark: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Base Styles --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-bg-primary-light);
+  color: var(--color-text-primary-light);
+  line-height: 1.6;
+  overscroll-behavior-y: contain;
+  margin: 0;
+  padding: 0;
+  direction: ltr;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+
+html.dark body {
+  background-color: var(--color-bg-primary-dark);
+  color: var(--color-text-primary-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) h5,
+html:not(.dark) h6 {
+  color: var(--color-text-header-light);
+}
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: var(--color-text-header-dark);
+}
+
+/* Character Creation Screen Specifics */
+#character-creation-screen {
+  background-color: var(--color-bg-primary-light);
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+html.dark #character-creation-screen {
+  background-color: var(--color-bg-primary-dark);
+}
+
+#character-creation-screen > h1 {
+  color: var(--color-text-header-light);
+}
+html.dark #character-creation-screen > h1 {
+  color: var(--color-text-header-dark);
+}
+
+/* Labels in Character Creation */
+html:not(.dark) #character-creation-screen label {
+  color: var(
+    --color-text-secondary-light
+  ) !important; /* Darker gray for labels */
+}
+html.dark #character-creation-screen label {
+  color: var(
+    --color-text-secondary-dark
+  ); /* Tailwind's dark:text-gray-300 is fine */
+}
+
+#character-creation-screen .w-full.max-w-md,
+#game-over-screen .w-full.max-w-md {
+  background-color: var(
+    --color-bg-secondary-light
+  ); /* White BG for card in light mode */
+  padding: 1.5rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md-light);
+  width: 100%;
+  max-width: 450px;
+}
+html.dark #character-creation-screen .w-full.max-w-md,
+html.dark #game-over-screen .w-full.max-w-md {
+  background-color: var(--color-bg-secondary-dark);
+  box-shadow: var(--shadow-md-dark);
+}
+
+input[type="text"],
+textarea {
+  font-family: var(--font-primary);
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-md);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background-color 0.3s,
+    color 0.3s;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--color-bg-secondary-light);
+  color: var(--color-text-primary-light);
+}
+html.dark input[type="text"],
+html.dark textarea {
+  background-color: var(--color-bg-tertiary-dark);
+  border-color: var(--color-border-dark);
+  color: var(--color-text-primary-dark);
+}
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+}
+html.dark input[type="text"]:focus,
+html.dark textarea:focus {
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.35);
+}
+
+/* --- Screen Layouts --- */
+.min-h-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Game Screen Specifics */
+#game-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#stats-panel {
+  background-color: var(--color-bg-secondary-light);
+  padding: 0.75rem 1rem;
+  box-shadow: var(--shadow-md-light);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--color-border-light);
+  /* Text color for light mode will be handled by more specific rules below */
+}
+html.dark #stats-panel {
+  background-color: var(--color-bg-secondary-dark);
+  border-bottom-color: var(--color-border-dark);
+  box-shadow: var(--shadow-md-dark);
+  color: var(--color-text-primary-dark);
+}
+
+html:not(.dark) #stats-panel,
+html:not(.dark) #stats-panel #player-name-age,
+html:not(.dark) #stats-panel #player-money,
+html:not(.dark) #stats-panel span,
+html:not(.dark) #stats-panel label,
+html:not(.dark) #stats-panel p {
+  color: var(--color-text-primary-light) !important;
+}
+html:not(.dark) #stats-panel #player-money.text-green-600 {
+  color: #16a34a !important;
+}
+html:not(.dark) #stats-panel #player-money.text-red-600 {
+  color: #dc2626 !important;
+}
+html:not(.dark) #stats-panel .text-gray-600 {
+  color: var(--color-text-secondary-light) !important;
+}
+
+html.dark #stats-panel #player-name-age,
+html.dark #stats-panel #player-money,
+html.dark #stats-panel span,
+html.dark #stats-panel label,
+html.dark #stats-panel p {
+  color: var(--color-text-primary-dark);
+}
+html.dark #stats-panel #player-money.text-green-600 {
+  color: #68d391 !important;
+}
+html.dark #stats-panel #player-money.text-red-600 {
+  color: #fc8181 !important;
+}
+html.dark #stats-panel .text-gray-600 {
+  color: var(--color-text-secondary-dark) !important;
+}
+
+#interaction-panel {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: var(--color-bg-primary-light);
+  color: var(--color-text-primary-light);
+}
+html.dark #interaction-panel {
+  background-color: var(--color-bg-primary-dark);
+  color: var(--color-text-primary-dark);
+}
+
+#message-log .p-2 {
+  background-color: var(--color-bg-secondary-light);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm-light);
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-text-primary-light);
+}
+html.dark #message-log .p-2 {
+  background-color: var(--color-bg-tertiary-dark);
+  color: var(--color-text-primary-dark);
+  box-shadow: var(--shadow-sm-dark);
+}
+#message-log .text-red-600 {
+  color: var(--color-accent-danger) !important;
+}
+html.dark #message-log .text-red-600 {
+  color: #fca5a5 !important;
+}
+#message-log .text-blue-700 {
+  color: var(--color-accent-primary) !important;
+}
+html.dark #message-log .text-blue-700 {
+  color: #93c5fd !important;
+}
+
+/* --- Buttons --- */
+.button-primary {
+  font-family: var(--font-primary);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.1s,
+    box-shadow 0.2s,
+    color 0.3s;
+  border: none;
+  color: var(--color-text-on-accent);
+  box-shadow: var(--shadow-sm-light);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+html.dark .button-primary {
+  box-shadow: var(--shadow-sm-dark);
+}
+.button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md-light);
+}
+html.dark .button-primary:hover {
+  box-shadow: var(--shadow-md-dark);
+}
+.button-primary:active {
+  transform: translateY(0px);
+  box-shadow: var(--shadow-sm-light);
+}
+html.dark .button-primary:active {
+  box-shadow: var(--shadow-sm-dark);
+}
+
+.button-primary:not([class*="bg-"]):not([class*="dark:bg-"]):not(
+    .button-secondary
+  ):not(.button-success):not(.button-danger):not(.button-disabled) {
+  background-color: var(--color-accent-primary);
+}
+.button-primary:not([class*="bg-"]):not([class*="dark:bg-"]):not(
+    .button-secondary
+  ):not(.button-success):not(.button-danger):not(.button-disabled):hover {
+  background-color: var(--color-accent-primary-dark-hover);
+}
+html.dark
+  .button-primary:not([class*="bg-"]):not([class*="dark:bg-"]):not(
+    .button-secondary
+  ):not(.button-success):not(.button-danger):not(.button-disabled) {
+  background-color: var(--color-accent-primary);
+}
+html.dark
+  .button-primary:not([class*="bg-"]):not([class*="dark:bg-"]):not(
+    .button-secondary
+  ):not(.button-success):not(.button-danger):not(.button-disabled):hover {
+  background-color: var(--color-accent-primary-dark-hover);
+}
+
+.button-primary.bg-blue-500 {
+  background-color: var(--color-accent-primary) !important;
+}
+.button-primary.hover\:bg-blue-600:hover {
+  background-color: var(--color-accent-primary-dark-hover) !important;
+}
+.button-primary.bg-pink-500 {
+  background-color: var(--color-accent-pink) !important;
+}
+.button-primary.hover\:bg-pink-600:hover {
+  background-color: var(--color-accent-pink-dark-hover) !important;
+}
+.button-primary.bg-purple-500 {
+  background-color: var(--color-accent-purple) !important;
+}
+.button-primary.hover\:bg-purple-600:hover {
+  background-color: var(--color-accent-purple-dark-hover) !important;
+}
+.button-primary.button-secondary,
+.button-primary.bg-orange-500 {
+  background-color: var(--color-accent-warning) !important;
+}
+.button-primary.button-secondary:hover,
+.button-primary.hover\:bg-orange-600:hover {
+  background-color: var(--color-accent-warning-dark-hover) !important;
+}
+.button-primary.button-success,
+.button-primary.bg-green-500 {
+  background-color: var(--color-accent-secondary) !important;
+}
+.button-primary.button-success:hover,
+.button-primary.bg-green-500:hover {
+  background-color: var(--color-accent-secondary-dark-hover) !important;
+}
+.button-primary.button-danger,
+.button-primary.bg-red-600 {
+  background-color: var(--color-accent-danger) !important;
+}
+.button-primary.button-danger:hover,
+.button-primary.bg-red-600:hover {
+  background-color: var(--color-accent-danger-dark-hover) !important;
+}
+
+html.dark .button-primary.dark\:bg-blue-600 {
+  background-color: var(--color-accent-primary) !important;
+}
+html.dark .button-primary.dark\:hover\:bg-blue-700:hover {
+  background-color: var(--color-accent-primary-dark-hover) !important;
+}
+html.dark .button-primary.dark\:bg-pink-600 {
+  background-color: var(--color-accent-pink) !important;
+}
+html.dark .button-primary.dark\:hover\:bg-pink-700:hover {
+  background-color: var(--color-accent-pink-dark-hover) !important;
+}
+html.dark .button-primary.dark\:bg-purple-600 {
+  background-color: var(--color-accent-purple) !important;
+}
+html.dark .button-primary.dark\:hover\:bg-purple-700:hover {
+  background-color: var(--color-accent-purple-dark-hover) !important;
+}
+html.dark .button-primary.dark\:bg-yellow-600 {
+  background-color: var(--color-accent-warning) !important;
+}
+html.dark .button-primary.dark\:hover\:bg-yellow-700:hover {
+  background-color: var(--color-accent-warning-dark-hover) !important;
+}
+html.dark .button-primary.dark\:bg-green-600 {
+  background-color: var(--color-accent-secondary) !important;
+}
+html.dark .button-primary.dark\:hover\:bg-green-700:hover {
+  background-color: var(--color-accent-secondary-dark-hover) !important;
+}
+html.dark .button-primary.dark\:bg-red-700 {
+  background-color: var(--color-accent-danger) !important;
+}
+html.dark .button-primary.dark\:hover\:bg-red-800:hover {
+  background-color: var(--color-accent-danger-dark-hover) !important;
+}
+
+.button-disabled,
+.button-primary.bg-gray-500 {
+  background-color: var(--color-accent-gray) !important;
+  color: var(--color-accent-gray-text) !important;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+html:not(.dark) .button-disabled,
+html:not(.dark) .button-primary.bg-gray-500 {
+  color: #374151 !important; /* Darker text for light gray bg in light mode (Tailwind gray-700) */
+}
+.button-disabled:hover,
+.button-primary.bg-gray-500:hover {
+  background-color: var(--color-accent-gray) !important;
+  transform: none;
+}
+html.dark .button-disabled,
+html.dark .button-primary.bg-gray-700 {
+  background-color: #4a5568 !important;
+  color: #a0aec0 !important;
+}
+
+#main-action-buttons {
+  background-color: var(--color-bg-secondary-light);
+  padding: 0.75rem;
+  box-shadow: 0 -4px 10px var(--shadow-sm-light);
+  position: sticky;
+  bottom: 4rem;
+  z-index: 40;
+  display: grid;
+  gap: 0.5rem;
+}
+html.dark #main-action-buttons {
+  background-color: var(--color-bg-secondary-dark);
+  box-shadow: 0 -4px 10px var(--shadow-sm-dark);
+}
+@media (max-width: 640px) {
+  #main-action-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 641px) {
+  #main-action-buttons {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+#age-up-button {
+  width: 100%;
+  background-color: var(--color-accent-secondary);
+  color: var(--color-text-on-accent);
+  padding: 0.875rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border-radius: 0;
+  position: sticky;
+  bottom: 0;
+  z-index: 45;
+}
+#age-up-button:hover {
+  background-color: var(--color-accent-secondary-dark-hover);
+}
+html.dark #age-up-button {
+  background-color: var(--color-accent-secondary);
+}
+html.dark #age-up-button:hover {
+  background-color: var(--color-accent-secondary-dark-hover);
+}
+
+/* --- Stats Bar --- */
+.stat-bar-bg {
+  /* background-color will be set by Tailwind's dark:bg-gray-700 in dark mode, */
+  /* and var(--color-bg-tertiary-light) in light mode via the rule below */
+  border-radius: var(--border-radius-sm);
+  height: 0.75rem;
+  overflow: hidden;
+  margin-top: 0.25rem;
+}
+html:not(.dark) .stat-bar-bg {
+  background-color: var(
+    --color-bg-tertiary-light
+  ) !important; /* Light gray for track in light mode */
+}
+html.dark .stat-bar-bg {
+  /* This targets the class directly in dark mode, Tailwind uses dark:bg-gray-700 which has higher specificity */
+  background-color: var(
+    --color-bg-tertiary-dark
+  ) !important; /* Ensure our dark mode variable is used if Tailwind class is removed/overridden */
+}
+
+.stat-bar-fill {
+  height: 100%;
+  border-radius: var(--border-radius-sm);
+  transition:
+    width 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+}
+#health-bar.bg-green-500 {
+  background-color: var(--color-accent-secondary) !important;
+}
+#health-bar.bg-yellow-500 {
+  background-color: var(--color-accent-warning) !important;
+}
+#health-bar.bg-red-500 {
+  background-color: var(--color-accent-danger) !important;
+}
+#happiness-bar.bg-yellow-400 {
+  background-color: #f1c40f !important;
+}
+#happiness-bar.bg-orange-500 {
+  background-color: var(--color-accent-warning) !important;
+}
+#happiness-bar.bg-red-600 {
+  background-color: var(--color-accent-danger) !important;
+}
+#smarts-bar.bg-blue-500 {
+  background-color: var(--color-accent-primary) !important;
+}
+#looks-bar.bg-pink-500 {
+  background-color: var(--color-accent-pink) !important;
+}
+
+/* --- Modal --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.65);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+html.dark .modal {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* Explicitly set modal background and text color for light mode */
+html:not(.dark) .modal-content {
+  background-color: var(
+    --color-bg-secondary-light
+  ) !important; /* White background */
+  color: var(--color-text-primary-light) !important; /* Dark text */
+  box-shadow: var(--shadow-lg-light) !important;
+}
+.modal-content {
+  /* Base styles, dark mode will override with Tailwind or specific .dark rules */
+  margin: auto;
+  padding: 1.5rem;
+  border: none;
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--border-radius-lg);
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+html.dark .modal-content {
+  /* Styles for dark mode modal content */
+  background-color: var(
+    --color-bg-secondary-dark
+  ) !important; /* Dark BG from variable */
+  color: var(
+    --color-text-primary-dark
+  ) !important; /* Light text from variable */
+  box-shadow: var(--shadow-lg-dark) !important;
+}
+
+.modal-content .flex.justify-between {
+  border-bottom: 1px solid var(--color-border-light);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+html.dark .modal-content .flex.justify-between {
+  border-bottom-color: var(--color-border-dark);
+}
+
+#modal-title {
+  font-size: 1.375rem;
+}
+/* Title color should be dark on light BG, light on dark BG */
+html:not(.dark) #modal-title {
+  color: var(--color-text-header-light) !important;
+}
+html.dark #modal-title {
+  color: var(--color-text-header-dark) !important;
+}
+
+#modal-close-button {
+  font-size: 1.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+html:not(.dark) #modal-close-button {
+  color: var(--color-text-secondary-light);
+}
+html:not(.dark) #modal-close-button:hover {
+  color: var(--color-text-primary-light);
+}
+html.dark #modal-close-button {
+  color: var(--color-text-secondary-dark);
+}
+html.dark #modal-close-button:hover {
+  color: var(--color-text-primary-dark);
+}
+
+#modal-body {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+/* Body text color should be dark on light BG, light on dark BG */
+html:not(.dark) #modal-body {
+  color: var(--color-text-primary-light) !important;
+}
+html.dark #modal-body {
+  color: var(--color-text-primary-dark) !important;
+}
+
+#modal-body .button-primary:not([class*="bg-"]) {
+  background-color: var(--color-accent-primary);
+}
+html.dark #modal-body .button-primary:not([class*="bg-"]) {
+  background-color: var(--color-accent-primary);
+}
+
+#modal-footer {
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border-light);
+}
+html.dark #modal-footer {
+  border-top-color: var(--color-border-dark);
+}
+#modal-footer button#modal-back-button-dynamic {
+  background-color: #a0aec0 !important;
+  color: var(--color-text-on-accent) !important;
+}
+#modal-footer button#modal-back-button-dynamic:hover {
+  background-color: #718096 !important;
+}
+html.dark #modal-footer button#modal-back-button-dynamic {
+  background-color: var(--color-bg-tertiary-dark) !important;
+  color: var(--color-text-primary-dark) !important;
+}
+html.dark #modal-footer button#modal-back-button-dynamic:hover {
+  background-color: var(--color-border-dark) !important;
+}
+
+/* --- Toast Notification --- */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--border-radius-md);
+  z-index: 1000;
+  opacity: 0;
+  transition:
+    opacity 0.4s ease-in-out,
+    transform 0.4s ease-in-out;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-md-light);
+  transform: translateX(-50%) translateY(20px);
+}
+html:not(.dark) .toast {
+  background-color: var(
+    --color-text-primary-light
+  ); /* Dark background for toast in light mode */
+  color: var(--color-bg-primary-light); /* Light text for toast in light mode */
+}
+html.dark .toast {
+  background-color: var(
+    --color-bg-secondary-dark
+  ); /* Lighter background for toast in dark mode */
+  color: var(
+    --color-text-primary-dark
+  ); /* Darker text for toast in dark mode */
+  box-shadow: var(--shadow-md-dark);
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --- Game Over Screen --- */
+#game-over-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  background-color: rgba(31, 41, 55, 0.85);
+}
+html.dark #game-over-screen {
+  background-color: rgba(17, 24, 39, 0.9);
+}
+#game-over-screen h1 {
+  color: var(--color-accent-danger);
+  font-size: 2.5rem;
+}
+html.dark #game-over-screen h1 {
+  color: #f87171;
+}
+#game-over-screen p {
+  color: var(--color-text-primary-light);
+}
+html.dark #game-over-screen p {
+  color: var(--color-text-primary-dark);
+}
+html:not(.dark) #game-over-screen #game-over-money {
+  color: #15803d !important;
+}
+html.dark #game-over-screen #game-over-money {
+  color: #68d391 !important;
+}
+#key-events-list {
+  text-align: left;
+  padding-left: 1rem;
+}
+#key-events-list li {
+  margin-bottom: 0.3rem;
+  color: var(--color-text-secondary-light);
+}
+html.dark #key-events-list li {
+  color: var(--color-text-secondary-dark);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 380px) {
+  #stats-panel .text-sm {
+    font-size: 0.75rem;
+  }
+  #stats-panel .text-lg {
+    font-size: 0.9rem;
+  }
+  #player-name-age,
+  #player-money {
+    font-size: 1rem;
+  }
+  .button-primary,
+  #age-up-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+  }
+  #age-up-button {
+    font-size: 1rem;
+  }
+  #main-action-buttons {
+    bottom: 3.5rem;
+  }
+  #modal-title {
+    font-size: 1.125rem;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+body.game-over-active {
+  overflow: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-tertiary-light);
+  border-radius: 10px;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: var(--color-bg-tertiary-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: #bdc3c7;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #95a5a6;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-text-secondary-dark);
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-dark);
+} /* Changed from tertiary-dark for better contrast */
+
+/* Theme toggle button specific styles */
+#theme-toggle-button svg {
+  color: var(--color-text-secondary-light);
+  transition: color 0.3s ease-in-out;
+}
+html.dark #theme-toggle-button svg {
+  color: var(--color-text-secondary-dark);
+}
+#theme-toggle-button:hover svg {
+  color: var(--color-text-primary-light);
+}
+html.dark #theme-toggle-button:hover svg {
+  color: var(--color-text-primary-dark);
+}
+
+/* اصلاح رنگ متن در حالت لایت مود برای بخش‌های مختلف مودال و املاک */
+html:not(.dark) .modal-content,
+html:not(.dark) .modal-content p,
+html:not(.dark) .modal-content span,
+html:not(.dark) .modal-content div {
+  color: var(--color-text-primary-light) !important;
+}
+
+/* اصلاح اختصاصی برای نام خانه‌ها و موارد مشابه در لیست‌ها */
+html:not(.dark) #modal-body div p.font-semibold {
+  color: var(--color-text-header-light) !important;
+}

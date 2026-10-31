@@ -1,0 +1,45 @@
+Copyright (c) 2025 Seyed Daniel Seyed Saadat
+
+Project: Life-Simulator  
+Website: https://www.danielseyedsaadat.com/ 
+GitHub: https://github.com/danielSeSa  
+
+---
+
+This project is open for educational, personal, or derivative use under the following conditions:
+
+1. You are allowed to view, use, modify, improve, or extend the code for **personal, educational, or commercial** purposes.
+
+2. You must **clearly credit the original author**, Seyed Daniel Seyed Saadat, by:
+   - Keeping this license file in the project
+   - Adding visible credit in the README, About page, or game credits
+   - Including a working link to the original GitHub repository:
+     https://github.com/danielSeSa/Life-Simulator
+
+3. Required credit must include:
+   - Full name: **Seyed Daniel Seyed Saadat**  
+   - GitHub profile: https://github.com/danielSeSa  
+   - Website (optional): https://www.danielseyedsaadat.com/
+
+4. You **may not**:
+   - Claim the project as your original creation  
+   - Remove or hide the original author’s credit
+
+5. For **public or commercial releases**, collaboration or at least notification to the original author is highly appreciated (though not strictly required).
+
+---
+
+## 🔗 Author & Contact
+
+LinkedIn: https://www.linkedin.com/in/seyed-daniel-seyed-saadat-566b38308  
+YouTube: https://www.youtube.com/channel/UCVlh0CqcTl98Vm35w4XIp5Q  
+ArtStation: https://www.artstation.com/daniel_seyed_saadat  
+Telegram: https://t.me/GameprojectD  
+Instagram: https://www.instagram.com/daniel.__.ss/  
+Pinterest: https://pin.it/2F16Ob83O  
+
+---
+
+This license aims to encourage learning, creativity, and fair reuse of the code, while protecting the original author’s rights and attribution.
+
+For commercial licensing, inquiries, or partnerships, please contact the author directly.
